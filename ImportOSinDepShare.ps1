@@ -23,7 +23,8 @@ $DeployShares = @("E:\MDTZTI", "E:\MDTProductie")
 ForEach ($Share in  $DeployShares){
     New-PSDrive -Name "DS002" -PSProvider MDTProvider -Root $Share
     Import-MDTOperatingSystem -Path "DS002:$OSPATH" -SourceFile $LastReferenceImage.FullName -DestinationFolder $Foldername
-    $GetLastFile = (Get-ChildItem "DS002:$OSPATH" | Sort-Object LastWriteTime | Select-Object -Last 1).Name
+    Start-Sleep -Second 16
+    $GetLastFile = (Get-ChildItem "DS002:$OSPATH" | Sort-Object LastWriteTime | Select-Object -First 1).Name
     $GetGuid = (Get-ItemProperty "DS002:$OSPATH\$GetLastFile").guid
     $Share = $Share.Replace("E:\", "")
     Add-Content -path "C:\Users\Administrator\Desktop\$Share.txt" $GetGuid
