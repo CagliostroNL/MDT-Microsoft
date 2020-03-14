@@ -1,6 +1,5 @@
 ''' 
-    Version: 2.0
-    Author: Cagliostro
+    Author: https://github.com/CagliostroNL
     Creation Date: 21-02-2020
     
 '''
