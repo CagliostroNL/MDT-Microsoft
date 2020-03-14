@@ -3,8 +3,7 @@
 
 
 .NOTES
-    Version: 1.0
-    Author: Cagliostro
+    Author: https://github.com/CagliostroNL
     Creation Date: 22-2-2020
 #>
 
