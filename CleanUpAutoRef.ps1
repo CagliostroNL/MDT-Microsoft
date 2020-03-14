@@ -10,11 +10,19 @@ Wordt uitgevoerd via scheduled tasks, na de make referece image scheduled task.
 #>
 
 
+#--------------------Variables-----------------
 $VMHost = "HYPERV00"
 $VMGuestName = "REFVM"
 $RefBootName = "ZTI Reference Image"
 $VHDPath = "C:\Users\Public\Documents\Hyper-V\Virtual Hard Disks\REF.VHDX"
+$DesktopPath = @("C:\Users\Administrator\Desktop\MDTZTI.txt", "C:\Users\Administrator\Desktop\MDTProductie.txt")
 
-Invoke-Command -ComputerName $VMHost -ScriptBlock { Set-WdsBootImage $Using:RefBootName -ImageName  -DisplayOrder "500000"}
+#--------------------Task-----------------
+Set-WdsBootImage  -Architecture x64 -ImageName $RefBootName -DisplayOrder 500000
 Invoke-Command -ComputerName $VMHost -ScriptBlock {Remove-VM -Name $Using:VMGuestName -Force} 
 Invoke-Command -ComputerName $VMHost -ScriptBlock {Remove-Item -Path $Using:VHDPath}
+
+foreach ($item in $DesktopPath) {
+    Remove-Item -Path $item
+}
+
