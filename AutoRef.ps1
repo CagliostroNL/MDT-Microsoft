@@ -1,12 +1,9 @@
 <# 
 .DESCRIPTION
 Automatiseert het maken van een Windows reference image.
-Uit te voeren via Scheduled tasks, script wdsproback.ps1 uitvoeren via scheduled task na ongeveer +- 3 uur om wds priority
-terug te zetten.
 
 .NOTES
-    Version: 1.0
-    Author: Cagliostro
+    Author: https://github.com/CagliostroNL
     Creation Date: 20-2-2020
 #>
 
