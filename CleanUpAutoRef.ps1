@@ -4,8 +4,7 @@ Clean-up script die uitgevoerd wordt na dat reference image is gemaakt.
 Wordt uitgevoerd via scheduled tasks, na de make referece image scheduled task.
 
 .NOTES
-    Version: 1.0
-    Author:Cagliostro
+    Author: https://github.com/CagliostroNL
     Creation Date: 20-2-2020
 #>
 
