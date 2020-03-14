@@ -8,9 +8,11 @@
 import xml.etree.ElementTree as ET
 import sys
 
-filePath = r"E:\TESTShare$\Control\TEST\ts.xml"
-guidPath = r"C:\Users\Administrator\Desktop\MDTProductie.txt"
+#-----------Variables-------------
+task = [r"E:\MDTZTI\Control\ZTI-BASIC\ts.xml"]
+guid = [r"C:\Users\Administrator\Desktop\MDTZTI.txt"]
 
+#----------functions---------------
 def writeXML(filePath, guidPath):
     tree = ET.parse(filePath)
     root = tree.getroot()
@@ -23,8 +25,7 @@ def writeXML(filePath, guidPath):
             print(content)
             var.text = content
     tree.write(filePath)
-    
-writeXML(filePath, guidPath)
-    
 
-   
+#----------task-------------  
+for t, g in zip(task, guid):
+    writeXML(t, g)
