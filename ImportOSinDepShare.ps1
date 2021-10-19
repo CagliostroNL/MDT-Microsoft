@@ -19,7 +19,7 @@ ForEach ($Share in  $DeployShares){
     New-PSDrive -Name "DS002" -PSProvider MDTProvider -Root $Share
     Import-MDTOperatingSystem -Path "DS002:$OSPATH" -SourceFile $LastReferenceImage.FullName -DestinationFolder $Foldername
     Start-Sleep -Second 30
-    $GetLastFile = (Get-ChildItem "DS002:$OSPATH" | Sort-Object $_.CreatedTime | Select-Object -First 1).Name
+    $GetLastFile = (Get-ChildItem "DS002:$OSPATH" | Sort-Object { $_.CreatedTime -as [datetime]} | Select-Object -First 1).Name
     Write-Host $GetLastFile
     $GetGuid = (Get-ItemProperty "DS002:$OSPATH\$GetLastFile").guid
     $Share = $Share.Replace("E:\", "")
